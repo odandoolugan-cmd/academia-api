@@ -1,4 +1,4 @@
-# app.py - AcadémIA API con TinyLlama
+# app.py - AcadémIA API con SmolLM (360M)
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -6,9 +6,9 @@ import torch
 import uvicorn
 import os
 
-print("⏳ Cargando AcadémIA API (TinyLlama)...")
+print("⏳ Cargando AcadémIA API (SmolLM)...")
 
-MODELO_NOMBRE = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+MODELO_NOMBRE = "HuggingFaceTB/SmolLM-360M-Instruct"
 
 try:
     tokenizer = AutoTokenizer.from_pretrained(MODELO_NOMBRE)
@@ -26,13 +26,13 @@ except Exception as e:
 
 app = FastAPI(
     title="AcadémIA API",
-    description="API de investigación académica con TinyLlama",
+    description="API de investigación académica con SmolLM",
     version="1.0.0"
 )
 
 class Consulta(BaseModel):
     mensaje: str
-    max_tokens: int = 500
+    max_tokens: int = 300
     temperatura: float = 0.7
 
 @app.post("/chat")
@@ -57,7 +57,7 @@ async def chat_endpoint(consulta: Consulta):
         if respuesta.startswith(consulta.mensaje):
             respuesta = respuesta[len(consulta.mensaje):].strip()
         
-        return {"respuesta": respuesta, "modelo": "TinyLlama"}
+        return {"respuesta": respuesta, "modelo": "SmolLM"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -84,4 +84,3 @@ async def root():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     uvicorn.run(app, host="0.0.0.0", port=port)
-
