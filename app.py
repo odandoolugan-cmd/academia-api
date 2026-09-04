@@ -1,4 +1,4 @@
-# app.py - AcadémIA API
+# app.py - AcadémIA API con TinyLlama
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -6,9 +6,9 @@ import torch
 import uvicorn
 import os
 
-print("⏳ Cargando AcadémIA API (Phi-3)...")
+print("⏳ Cargando AcadémIA API (TinyLlama)...")
 
-MODELO_NOMBRE = "microsoft/Phi-3-mini-4k-instruct"
+MODELO_NOMBRE = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
 
 try:
     tokenizer = AutoTokenizer.from_pretrained(MODELO_NOMBRE)
@@ -26,7 +26,7 @@ except Exception as e:
 
 app = FastAPI(
     title="AcadémIA API",
-    description="API de investigación académica con Phi-3",
+    description="API de investigación académica con TinyLlama",
     version="1.0.0"
 )
 
@@ -57,7 +57,7 @@ async def chat_endpoint(consulta: Consulta):
         if respuesta.startswith(consulta.mensaje):
             respuesta = respuesta[len(consulta.mensaje):].strip()
         
-        return {"respuesta": respuesta, "modelo": "Phi-3"}
+        return {"respuesta": respuesta, "modelo": "TinyLlama"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -84,3 +84,4 @@ async def root():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     uvicorn.run(app, host="0.0.0.0", port=port)
+
