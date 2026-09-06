@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcadémIA · IA Académica Gratuita</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0f1e 0%, #0c1222 100%);
+            color: #eef2ff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 800px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #FFD166, #FF6B6B, #4ECDC4, #8B5CF6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+            margin: 0.5rem;
+        }
+        .btn:hover { transform: scale(1.05); }
+        .btn-secondary {
+            background: rgba(30, 41, 59, 0.8);
+            box-shadow: none;
+            border: 1px solid #334155;
+        }
+        .btn-secondary:hover { background: #334155; }
+        .footer {
+            margin-top: 3rem;
+            color: #64748b;
+            font-size: 0.7rem;
+        }
+        .features {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        .feature {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        .feature strong { color: #eef2ff; }
+        @media (max-width: 700px) {
+            h1 { font-size: 2.5rem; }
+            .btn { padding: 0.8rem 1.5rem; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="badge">♾️ GRATIS · ILIMITADO</span>
+        <h1>📚 AcadémIA</h1>
+        <p class="subtitle">Asistente académico con IA · Phi-3 · Multilingüe</p>
+
+        <div>
+            <a href="chat.html" class="btn">💬 Abrir Chat</a>
+        </div>
+
+        <div class="features">
+            <div class="feature">🧠 <strong>Phi-3</strong> · IA avanzada</div>
+            <div class="feature">🌐 <strong>Multilingüe</strong> · Español, Inglés, etc.</div>
+            <div class="feature">♾️ <strong>Ilimitado</strong> · Sin costos</div>
+            <div class="feature">🇩🇪 <strong>Enfoque Alemán</strong> · Rigor académico</div>
+        </div>
+
+        <div class="footer">
+            AcadémIA · Chatbot con Phi-3 · 100% Gratis · ♾️ Sin límites
+        </div>
+    </div>
+</body>
+</html>
